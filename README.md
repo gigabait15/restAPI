@@ -121,3 +121,25 @@ curl -H "X-API-Key: <ключ>" \
 - `GET /api/v1/organization/geo/bounds?min_lat=...&min_lon=...&max_lat=...&max_lon=...`
 - `POST /api/v1/activity/set-max-level`
 - `GET /health`
+
+## Использование и авторизация
+
+Документация доступна:
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+Для всех защищённых эндпоинтов требуется API‑ключ. Передавайте его в заголовке
+`X-API-Key`:
+
+```
+X-API-Key: <ваш_ключ>
+```
+
+Если ключ не задан в `.env`, можно получить его через `/api/v1/auth/token` —
+ключ будет сгенерирован и сохранён в `.env`.
+
+### Использование ключа в Swagger UI
+
+В Swagger UI нажмите кнопку **Authorize** и вставьте ключ в поле для
+`X-API-Key` (без префикса `Bearer`). После авторизации все запросы из UI
+будут автоматически отправляться с этим заголовком.
